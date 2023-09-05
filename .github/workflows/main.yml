@@ -14,7 +14,7 @@ jobs:
         - 80
     steps:
       - name: Clone Github Repo Action
-        uses: GuillaumeFalourd/clone-github-repo-action@v2.1
+        uses: actions/checkout@v4
       - name: Test my python application
         run: pytest --cov=. mytest.py --json-report
       - name: Build docker image
