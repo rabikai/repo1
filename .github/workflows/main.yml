@@ -23,6 +23,6 @@ jobs:
       - name: Clone Github Repo Action
         uses: actions/checkout@v4
       - name: Build docker image
-        run: docker build -t rbikai/python:${{ github.head_ref || github.ref_name }}
+        run: docker build -t rbikai/python:${{ github.head_ref || github.ref_name }} .
       - name: Push the image to dockerhub
         run: docker push rbikai/python:${{ github.head_ref || github.ref_name }}
