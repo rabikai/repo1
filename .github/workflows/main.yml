@@ -7,7 +7,7 @@ jobs:
   test-python-application:
     runs-on: ubuntu-latest
     container:
-      image: rbikai/latest
+      image: rbikai/python
       env:
         ENV_TO_REPLACE: ${{ github.head_ref || github.ref_name }}
       ports:
