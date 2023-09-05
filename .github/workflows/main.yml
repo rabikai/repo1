@@ -5,7 +5,7 @@ on:
     - main
 jobs:
   test-python-application:
-    runs-on: myContainer
+    runs-on: ubuntu-latest
     container:
       image: rbikai/latest
       env:
