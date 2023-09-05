@@ -2,7 +2,7 @@ FROM python:latest
 
 WORKDIR /data
 
-ENV ENV_TO_REPLACE=
+#ENV ENV_TO_REPLACE=
 
 RUN echo "ENV_TO_REPLACE=$ENV_TO_REPLACE"
 
