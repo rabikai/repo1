@@ -1,0 +1,23 @@
+name: mainAction
+on:
+  push:
+    branches:
+    - main
+jobs:
+  test-python-application:
+    runs-on: rbikai/python
+    container:
+      image: rbikai/latest
+      env:
+        ENV_TO_REPLACE: ${{ github.head_ref || github.ref_name }}
+      ports:
+        - 80
+    steps:
+      - name: Clone Github Repo Action
+        uses: GuillaumeFalourd/clone-github-repo-action@v2.1
+      - name: Test my python application
+        run: pytest --cov=. mytest.py --json-report
+      - name: Build docker image
+        run: docker build -t rbikai/python:${{ github.head_ref || github.ref_name }}
+      - name: Push the image to dockerhub
+        run: docker push rbikai/python:${{ github.head_ref || github.ref_name }}
