@@ -18,6 +18,7 @@ jobs:
       - name: Test my python application
         run: pytest --cov=. mytest.py --json-report
   push-docker-image:
+    needs: test-python-application
     runs-on: ubuntu-latest
     steps:
       - name: Clone Github Repo Action
