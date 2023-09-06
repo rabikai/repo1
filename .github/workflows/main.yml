@@ -1,4 +1,4 @@
-name: mainAction
+name: Test Python Application
 on:
   push:
     branches:
