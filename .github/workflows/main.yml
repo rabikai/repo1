@@ -17,7 +17,15 @@ jobs:
       - name: Clone Github Repo Action
         uses: actions/checkout@v4
       - name: Test my python application
-        run: pytest --cov=. mytest.py --json-report
+        run: pytest --cov=. mytest.py --html-report
+      - name: Test my python application
+        run: ls -ltr
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: my_file.txt
+          retention-days: 10
   push-docker-image:
     needs: test-python-application
     runs-on: ubuntu-latest
