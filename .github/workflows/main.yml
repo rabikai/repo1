@@ -17,7 +17,7 @@ jobs:
       - name: Clone Github Repo Action
         uses: actions/checkout@v4
       - name: Test my python application
-        run: pytest --cov=. mytest.py --html-report
+        run: pytest --cov=. mytest.py --json-report
       - name: Test my python application
         run: ls -ltr
       - name: Upload Artifact
